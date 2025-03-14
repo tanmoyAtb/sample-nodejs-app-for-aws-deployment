@@ -1,0 +1,16 @@
+{
+  "name": "sample-nodejs-app-for-aws-deployment",
+  "version": "1.0.0",
+  "description": "A sample Nodejs application using a sample .env to deploy to AWS, auto scale, load balance and continuously deploy.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
