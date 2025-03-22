@@ -3,8 +3,8 @@ version: 0.2
 
 env:
   variables:
-    AWS_REGION: "<aws_region>" # like "ap-south-1"
-    AWS_ACCOUNT_ID: "<aws_account_id>" # the aws account id, find in ECR repository
+    AWS_REGION: "ap-south-1" # like "ap-south-1"
+    AWS_ACCOUNT_ID: "824039889403" # the aws account id, find in ECR repository
     IMAGE_REPO_NAME: "my-app" # your repository name in ECR
     IMAGE_TAG: "latest" # use latest or the tag you are using
   parameter-store:
