@@ -17,20 +17,14 @@ aws ssm get-parameters-by-path \
     | jq -r '.Parameters[] | (.Name | split("/")[-1]) + "=" + (.Value)' \
     | tee /home/ubuntu/.env
 
-aws ssm get-parameters-by-path \
-    --path "/$APP_NAME" --recursive --with-decrypt \
-    | jq -r '.Parameters[] | (.Name | split("/")[-1]) + "=" + (.Value)' \
-    | tee /home/ubuntu/.env
-
 # Stop existing container
-docker ps -q --filter "ancestor=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP_NAME:$IMAGE_TAG" | xargs -r docker stop
+docker stop $(docker ps -a -q)
 
 # Remove unused containers and images (optional)
 docker system prune -f
 
 # Run Docker image
 docker run --env-file .env -p 8000:8000 -d $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/my-app:latest
-docker run --env-file .env -p 8000:8000 -d 824039889403.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest
 
 sudo nginx -t
 sudo service nginx restart
