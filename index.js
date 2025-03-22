@@ -11,5 +11,5 @@ app.get("/", (_, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Hello from ${APP_NAME}!`);
+  console.log(`Hello from ${APP_NAME}! updated`);
 });
