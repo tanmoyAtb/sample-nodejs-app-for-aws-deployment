@@ -6,7 +6,6 @@ AWS_ACCOUNT_ID="ap-south-1"
 AWS_REGION="824039889403"
 IMAGE_TAG="latest"
 APP_NAME="my-app"
-PORT="8000"
 
 # pulling docker image
 aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
@@ -25,7 +24,7 @@ docker ps -q --filter "ancestor=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.co
 docker system prune -f
 
 # Run Docker image
-docker run --env-file .env -p $PORT:$PORT -d $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/my-app:latest
+docker run --env-file .env -p 8000:8000 -d $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/my-app:latest
 
 sudo nginx -t
 sudo service nginx restart
