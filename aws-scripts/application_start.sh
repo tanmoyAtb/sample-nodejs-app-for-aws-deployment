@@ -2,8 +2,8 @@
 
 cd /home/ubuntu
 
-AWS_ACCOUNT_ID="ap-south-1"
-AWS_REGION="824039889403"
+AWS_ACCOUNT_ID="824039889403"
+AWS_REGION="ap-south-1"
 IMAGE_TAG="latest"
 APP_NAME="my-app"
 
