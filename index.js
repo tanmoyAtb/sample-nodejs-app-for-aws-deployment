@@ -7,9 +7,9 @@ const APP_NAME = process.env.APP_NAME;
 const app = express();
 
 app.get("/", (_, res) => {
-  res.send(`Hello from ${APP_NAME}!`);
+  res.send(`Hello from ${APP_NAME}! updated`);
 });
 
 app.listen(PORT, () => {
-  console.log(`Hello from ${APP_NAME}! updated`);
+  console.log(`Hello from ${APP_NAME}`);
 });
